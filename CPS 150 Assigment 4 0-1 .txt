@@ -1,0 +1,84 @@
+    // standard final static variables that all methods can share
+    final static Scanner cin = new Scanner(System.in);
+    final static Random rand = new Random();
+
+	//make the public variables of correct, which is the number of time the student get the answer correct
+	public static int correct;
+    public static void main(String[] args) {
+	// output identification
+		out.println("CPS 150 Assignment 4 by Solomon West \n");
+
+		// NEED TO ADD THINGS HERE 
+			//Introduction
+			//Input name
+		System.out.println("Welcome to the Multiplication Table quiz");
+		System.out.print("Enter your given name (no spaces): ");
+		String studentName= cin.next();
+		System.out.println("Greetings ,"+name+" !");
+		System.out.println("I willl ask you 10 problems");
+		int numberOfProblem = 10
+		System.out.println("Ready, set, go\n");
+		
+		// The Loop should be here in this method
+			// while the the current problem number is less than the numberOfProblem
+			// then call the method that gives a problem
+		for (int currentProblemNumber = 1; currentProblemNumber <= numberOfProblem; currentProblemNumber++){
+		oneProblem(currentProblemNumber)
+		}
+		//print out the results from the test that was run
+
+		out.print("\nAssignment 4 complete\n\n");
+    } // end main
+
+    // function to present one problem to the learner
+    // returns true if learner answers that problem correctly, returns false otherwise
+    static boolean oneProblem(int newProblem) {
+		// produce two random number from 1 to 10
+		int randOne = rand.nextInt(10);
+		int randTwo = rand.nextInt(10);
+		// NEED TO ADD THINGS HERE
+		// There should not be a loop here
+		//fine the correct answer
+		int correctAnswer = randOne * randTwo
+		//print out the two random numbers and see what the student thinks the answer is
+		System.out.print("Probelm "+ newProblem +": What is "+ randOne +" times "+ randTwo +" ? ");
+		int studentAnswer = cin.nextInt();	
+		
+		//if the correct answer and student is the same
+			// then print out your answer is correct
+			// and times correct goes up one
+		if(	correctAnswer == studentAnswer ){
+			System.out.print("Your answer is correct");
+			System.out.println();
+			correct++;
+			}
+		else{
+			System.out.print("Your answer is wrong. The correct answer is "+solution);
+			System.out.println();
+			}
+
+			System.out.println(); 
+			
+		 
+		return false;	// to let the program compile
+		} // end oneproblem
+
+    static void report(String studentName, int numberOfProblems, int numberOfCorrect) {
+
+	// NEED TO ADD THINGS HERE
+        System.out.println("Test Report for "+ studentName);
+        System.out.println("Problems attempted: "+numberOfProblems);
+        System.out.println("Correct answers: "+numberOfCorrect);
+        System.out.println("Incorrect answers: "+(numberOfProblems - numberOfCorrect));
+        System.out.println();
+        
+        if(10 == numberOfCorrect)
+            System.out.println("Congratulations, you got a perfect score!");
+        else if (numberOfCorrect<7)
+            System.out.println("You really need to try harder");
+        else if (numberOfCorrect<=7)
+            System.out.println("You pass but should try to do better");
+        else if (numberOfCorrect>=8)
+            System.out.println("You did all right");
+        
+    } // end report
